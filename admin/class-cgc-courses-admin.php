@@ -40,6 +40,9 @@ class CGC_Courses_Admin {
 		$plugin = CGC_Courses::get_instance();
 		$this->plugin_slug = $plugin->get_plugin_slug();
 
+
+		require_once CGC_COURSES_DIR.'admin/includes/process.lesson.php';
+
 	}
 
 	/**

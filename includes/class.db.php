@@ -16,9 +16,10 @@ class CGC_Courses_DB {
 	}
 
 	/**
-	*	Relate a lesson to a course
+	*	Add a lesson to a course
 	*
 	*	@since 5.0
+	*	@todo account for updating or removing the lesson
 	*/
 	public function add_lesson( $args = array() ) {
 
@@ -48,8 +49,22 @@ class CGC_Courses_DB {
 		return false;
 	}
 
+	/**
+	*	Find the course that the lesson is attached to
+	*	@since 5.0
+	*/
+	public function find_parent( $lesson_id = 0 ) {
+
+		global $wpdb;
+
+		$result = $wpdb->get_col( $wpdb->prepare( "SELECT course_id FROM {$this->table} WHERE `lesson_id` = '%d'; ", absint( $lesson_id ) ) );
+
+		return $result;
+
+	}
+
+
 	public function remove_lesson( $lesson_id = 0 ) {}
 
-	public function is_lesson_in_course( $lesson_id = 0 ) {}
 
 }
