@@ -29,5 +29,5 @@ function cgc_get_lesson_parent( $lesson_id = 0 ){
 
 	$result =  $db->find_parent( $lesson_id );
 
-	return $result[0];
+	return $result ? $result[0] : false;
 }
