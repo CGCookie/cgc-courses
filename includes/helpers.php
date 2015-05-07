@@ -5,7 +5,7 @@
 *
 *	@since 5.0
 */
-function cgc_add_lesson( $course_id = 0, $lesson_id = 0 ) {
+function cgc_course_add_lesson( $course_id = 0, $lesson_id = 0 ) {
 
 	if ( empty( $course_id ) || empty( $lesson_id ) )
 		return;
@@ -20,7 +20,7 @@ function cgc_add_lesson( $course_id = 0, $lesson_id = 0 ) {
 *
 *	@since 5.0
 */
-function cgc_get_lesson_parent( $lesson_id = 0 ){
+function cgc_course_get_lesson_parent( $lesson_id = 0 ){
 
 	if ( empty( $lesson_id ) )
 		$lesson_id = get_the_ID();
@@ -32,7 +32,7 @@ function cgc_get_lesson_parent( $lesson_id = 0 ){
 	return $result ? $result[0] : false;
 }
 
-function cgc_course_update_lessons( $course_id = 0 , $lessons = array() ) {
+function cgc_course_update_all_lessons( $course_id = 0 , $lessons = array() ) {
 
 	if ( empty( $course_id ) || empty( $lessons ) )
 		return;
@@ -40,7 +40,7 @@ function cgc_course_update_lessons( $course_id = 0 , $lessons = array() ) {
 	// add the love
 	$db = new CGC_Courses_DB;
 
-	$db->remove_lessons( $course_id );
+	$db->remove_all_lessons( $course_id );
 
 	foreach( $lessons as $lesson ) {
 

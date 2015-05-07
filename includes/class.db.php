@@ -58,7 +58,7 @@ class CGC_Courses_DB {
 	 *
 	 * @since 5.0
 	 */
-	public function remove_lessons( $course_id = 0 ) {
+	public function remove_all_lessons( $course_id = 0 ) {
 
 		global $wpdb;
 
