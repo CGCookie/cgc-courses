@@ -50,6 +50,29 @@ class CGC_Courses_DB {
 	}
 
 	/**
+	 * Remove all lessons from a course
+	 *
+	 * @param int $flow_id
+	 *
+	 * @return bool
+	 *
+	 * @since 5.0
+	 */
+	public function remove_lessons( $course_id = 0 ) {
+
+		global $wpdb;
+
+		if ( empty( $course_id ) ) {
+			return;
+		}
+
+ 		$remove = $wpdb->query( $wpdb->prepare( "DELETE FROM {$this->table} WHERE `course_id` = '%d' ;", absint( $course_id ) ) );
+
+		return $remove;
+
+	}
+
+	/**
 	*	Find the course that the lesson is attached to
 	*	@since 5.0
 	*/

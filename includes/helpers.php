@@ -31,3 +31,19 @@ function cgc_get_lesson_parent( $lesson_id = 0 ){
 
 	return $result ? $result[0] : false;
 }
+
+function cgc_course_update_lessons( $course_id = 0 , $lessons = array() ) {
+
+	if ( empty( $course_id ) || empty( $lessons ) )
+		return;
+
+	// add the love
+	$db = new CGC_Courses_DB;
+
+	$db->remove_lessons( $course_id );
+
+	foreach( $lessons as $lesson ) {
+
+		$db->add_lesson( array( 'course_id' => $course_id, 'lesson_id' => $lesson ) );
+	}
+}
