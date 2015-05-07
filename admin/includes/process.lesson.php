@@ -9,13 +9,16 @@ function cgc_save_course_add_lesson( $post_id ){
 
     $courses = isset( $_POST['_course_lessons'] ) ? $_POST['_course_lessons'] : false;
 
+    $ids = '';
     foreach ( $courses as $course ) {
 
-    	$ids = $course['ids'];
-    	$ids = explode(',', $ids);
-
-    	cgc_course_update_lessons( $post_id, $ids );
+    	$ids .= $course['ids'].',';
 
     }
+
+    $ids = explode(',', rtrim( $ids,',' ));
+
+    cgc_course_update_lessons( $post_id, $ids );
+
 
 }
