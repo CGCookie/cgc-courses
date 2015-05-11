@@ -20,7 +20,7 @@ function cgc_course_add_lesson( $course_id = 0, $lesson_id = 0 ) {
 *
 *	@since 5.0
 */
-function cgc_course_get_lesson_parent( $lesson_id = 0 ){
+function cgc_course_get_object_parent( $lesson_id = 0 ){
 
 	if ( empty( $lesson_id ) )
 		$lesson_id = get_the_ID();
