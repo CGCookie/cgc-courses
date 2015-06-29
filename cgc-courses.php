@@ -10,7 +10,7 @@
  * Plugin Name:       CGC Courses
  * Plugin URI:        http://cgcookie.com
  * Description:       Creates a course system with chapters and lessons
- * Version:           2.0
+ * Version:           5.0
  * GitHub Plugin URI: https://github.com/cgcookie/cgc-courses
  */
 
@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 // Set some constants
-define('CGC_COURSES_VERSION', '2.0');
+define('CGC_COURSES_VERSION', '5.0');
 define('CGC_COURSES_DIR', plugin_dir_path( __FILE__ ));
 define('CGC_COURSES_URL', plugins_url( '', __FILE__ ));
 
